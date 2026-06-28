@@ -1,0 +1,166 @@
+ .hamburger-btn {
+     background: transparent;
+     border: none;
+     cursor: pointer;
+     padding: 10px;
+     display: flex;
+     flex-direction: column;
+     gap: 6px;
+ }
+
+ .hamburger-btn span {
+     width: 32px;
+     height: 3px;
+     background: #2c3e50;
+     border-radius: 10px;
+     transition: all 0.3s ease;
+ }
+
+ /* Hover Effect */
+ .hamburger-btn:hover span:nth-child(1) {
+     width: 24px;
+ }
+
+ .hamburger-btn:hover span:nth-child(2) {
+     width: 32px;
+ }
+
+ .hamburger-btn:hover span:nth-child(3) {
+     width: 24px;
+ }
+
+ .close-btn {
+     width: 40px;
+     height: 40px;
+     background: transparent;
+     border: none;
+     position: relative;
+     cursor: pointer;
+ }
+
+ .close-btn span {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     width: 28px;
+     height: 3px;
+     background: #333;
+     border-radius: 10px;
+     transition: 0.3s;
+ }
+
+ .close-btn span:first-child {
+     transform: translate(-50%, -50%) rotate(45deg);
+ }
+
+ .close-btn span:last-child {
+     transform: translate(-50%, -50%) rotate(-45deg);
+ }
+
+ .close-btn:hover span {
+     width: 32px;
+     background-color: white;
+ }
+
+
+ #Navbar {
+     padding: 0 !important;
+     border-radius: 10px;
+ }
+
+ .active {
+     background-color: rgb(45, 115, 15);
+     color: white !important;
+     border-radius: 10px;
+     font-weight: 700;
+     box-shadow: 0px 0px 2px green;
+ }
+
+ .navbar_company_name {
+     font-size: 1.1rem;
+     color: rgb(1, 96, 1);
+ }
+
+ .navbar-nav {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+ }
+
+ .nav-link {
+     color: white;
+     padding-left: 10px;
+ }
+
+
+
+
+
+ /* desktop view */
+ @media (min-width: 992px) {
+     #Navbar {
+         background-color: rgb(19, 100, 19) !important;
+     }
+
+     .nav-item {
+         display: flex;
+         justify-content: center;
+     }
+
+     .nav-link {
+        padding: 15px;
+     }
+
+     .navbar-nav {
+         display: flex;
+     }
+
+     #desktopNav {
+         display: flex;
+         align-items: center;
+     }
+ }
+
+ /* Mobile view */
+ @media (max-width: 991px) {
+     #Navbar {
+         background-color: white !important;
+         height: 70px;
+     }
+
+     #mobileMenu {
+         background-color: rgb(19, 100, 19);
+         width: 75%;
+     }
+
+     .navbar-nav {
+         display: block;
+     }
+
+     .nav-item {
+         padding-left: 10px;
+     }
+
+     .navbar-nav .nav-item {
+         margin-bottom: 5px;
+     }
+
+     /* Chrome, Edge, Safari */
+     #mobileMenu .offcanvas-body::-webkit-scrollbar {
+         width: 5px;
+     }
+
+     #mobileMenu .offcanvas-body::-webkit-scrollbar-track {
+         background: transparent;
+     }
+
+     #mobileMenu .offcanvas-body::-webkit-scrollbar-thumb {
+         background: rgba(255, 255, 255, 0.5);
+         border-radius: 10px;
+     }
+
+     #mobileMenu .offcanvas-body {
+         overflow-y: auto;
+         max-height: calc(100vh - 80px);
+     }
+ }

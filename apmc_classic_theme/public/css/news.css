@@ -1,0 +1,69 @@
+.category-filter {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    cursor: grab;
+
+    /* Hide scrollbar */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+}
+.category-filter:active {
+    cursor: grabbing;
+}
+
+.category-filter::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.filter-btn {
+    flex: 0 0 auto;
+    border: none;
+    background: #f1f1f1;
+    padding: 8px 18px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+    background: #198754;
+    color: white;
+}
+
+
+
+.card {
+    height: 435px;
+    border: none;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px)!important;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+}
+
+.card img {
+    height: 175px;
+    width: 100%;
+    /* object-fit: cover; */
+}
+
+.content {
+    font-size: 14px;
+    overflow: hidden;
+}
+.rotate-arrow {
+    font-size: 14px;
+    transform: rotate(-45deg);
+    display: inline-block;
+}
+.card div a{
+    text-decoration: none;
+    text-decoration-style: none;
+}

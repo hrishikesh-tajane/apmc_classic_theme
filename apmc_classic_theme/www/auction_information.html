@@ -1,0 +1,60 @@
+{% extends "templates/layout.html" %}
+
+{% block content %}
+
+
+<div class="container py-5">
+
+    <div class="text-center mb-5">
+        <h2 class="fw-bold">Auction Information</h2>
+       
+    </div>
+
+    <!-- <div class="row" id="auction-container">
+
+        <div class="col-12 text-center">
+            <div class="spinner-border"></div>
+        </div>
+
+    </div> -->
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Department</th>
+            <th>Auction Info</th>
+            <th>Date Time</th>
+            <th>Note</th>
+        </tr>
+    </thead>
+    <tbody id="auction-table-body"></tbody>
+</table>
+</div>
+
+<script>
+fetch("/api/method/apmc_classic_theme.api.auction_information.get_auction_information")
+.then(response => response.json())
+.then(data => {
+
+    const records = data.message;
+
+    console.log(records);
+const tbody = document.getElementById("auction-table-body");
+    records.forEach(item => {
+       tbody.innerHTML += `
+        <tr>
+            <td>${item.department || ''}</td>
+            <td>${item.auction_info || ''}</td>
+            <td>${item.date || ''}</td>
+            <td>${item.note || ''}</td>
+        </tr>
+    `;
+    });
+
+})
+.catch(error => {
+    console.log(error);
+});
+
+</script>
+
+{% endblock %}

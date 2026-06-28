@@ -1,0 +1,120 @@
+.card-body-text {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.card-body-subtext {
+    font-size: 12px;
+}
+
+.card-text {
+    font-size: 14px;
+}
+
+.card-text li {
+    margin-bottom: 8px;
+}
+
+.table-header-text {
+    font-size: 13px;
+    padding: 5px !important;
+}
+
+.table thead th {
+    background-color: rgb(225, 236, 225);
+
+    color: black;
+}
+
+.details-card {
+    height: 350px;
+}
+
+.quick_link_icons {
+    font-size: 22px;
+    height: 30px;
+    width: 30px;
+}
+
+.gallery {
+    background-color: rgb(230, 227, 227);
+    border-radius: 10px;
+    height: 125px;
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+.gallery_img {
+    height: 110px;
+    width: 100%;
+    border-radius: 4px;
+}
+
+@media (max-width: 576px) {
+    .details-card {
+        height: auto !important;
+    }
+
+    .gallery {
+        height: auto !important;
+    }
+
+    .gallery_img {
+        height: 150px !important;
+    }
+    .market-title{
+        width: 125px !important;
+    }
+}
+
+
+
+/* scroll bar market prices */
+.market-wrapper {
+    display: flex;
+    width: 100%;
+    border: 1px solid #ccc;
+}
+
+.market-title {
+    width: 175px;
+    flex-shrink: 0;
+
+    background: rgb(19, 100, 19);
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 600;
+    padding: 5px;
+    font-size:14px;
+}
+
+.market-scroll {
+    flex: 1;
+    overflow: hidden;
+    /* important */
+    background: #f5f5f5;
+}
+
+.market-scroll marquee {
+    margin: 0;
+    padding: 3px 0;
+}
+
+.ticker-item {
+    font-size: 14px;
+    display: inline-block;
+    padding: 0 10px;
+    border-right: 1px solid #ccc;
+}
+.up{
+    color:green;
+}
+
+.down{
+    color:red;
+}

@@ -1,0 +1,389 @@
+{% extends "templates/layout.html" %}
+{% block content %}
+
+{{ include_style('/assets/apmc_classic_theme/css/homepage.css') }}
+
+<!-- scroll bar -->
+<div class="market-wrapper mb-2">
+
+    <div class="market-title">
+        <div> बाजारभाव</div>
+        <div>11/06/2026</div>
+    </div>
+
+    <div class="market-scroll">
+        <marquee behavior="scroll" direction="left" scrollamount="8" onmouseover="this.stop();"
+            onmouseout="this.start();">
+
+            <span class="ticker-item text-center">
+                <b>टोंडका (लोकल)</b><br>
+                ₹ 5000 <span class="up">▲</span>
+                ₹ 4000 <span class="down">▼</span>
+            </span>
+
+            <span class="ticker-item">
+                <b>पलतकोबी</b><br>
+                ₹ 2000 <span class="up">▲</span>
+                ₹ 1500 <span class="down">▼</span>
+            </span>
+
+            <span class="ticker-item">
+                <b>पालक</b><br>
+                ₹ 1200 <span class="up">▲</span>
+                ₹ 800 <span class="down">▼</span>
+            </span>
+
+            <span class="ticker-item">
+                <b>भेंडी</b><br>
+                ₹ 1500 <span class="up">▲</span>
+                ₹ 1200 <span class="down">▼</span>
+            </span>
+
+        </marquee>
+    </div>
+
+</div>
+
+
+
+
+
+<!-- Carousel -->
+{{include_style("/assets/apmc_classic_theme/css/carousel.css")}}
+<div id="carouselExampleDark" class="container-fluid carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active indicatorbtn"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"
+            class="indicatorbtn"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"
+            class="indicatorbtn"></button>
+    </div>
+    <div class="carousel-inner" style="border-radius: 10px;">
+        <div class="carousel-item active" data-bs-interval="5000">
+            <div class="d-flex justify-content-end">
+                <img src="/assets/apmc_classic_theme/images/Krushi-utpanna-bajar-samiti-manchar.png"
+                    class="d-block carousel-image " alt="...">
+            </div>
+            <div class="carousel-caption d-none d-md-block">
+                <div class="text-div">
+                    <b class="text-start carocel-heading-text">मंचर कृषी उत्पन्न बाजार समितीत आपले स्वागत आहे!
+                    </b>
+                    <span class="text-start carocel-heading-subtext">
+                        शेतकरी, व्यापारी आणि ग्राहक यांच्यासाठी पारदर्शक व विश्वासारर्ह बाजारपेठ उपलच्ध करून देणे हे
+                        आमचे ध्येय आहे.<br>
+                    </span>
+                    <div class="text-start"><button class="btn btn-danger aboytmore-btn">अधिक जाणून घ्या <i
+                                class="fa fa-arrow-right"></i></button></div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="4000">
+            <div class="d-flex justify-content-end">
+                <img src="/assets/apmc_classic_theme/images/car-loan-img.png" class="d-block carousel-image" alt="...">
+            </div>
+            <div class="carousel-caption d-none d-md-block">
+                <div class="text-div">
+                    <b class="text-start carocel-heading-text">मंचर कृषी उत्पन्न बाजार समितीत आपले स्वागत आहे!
+                    </b>
+                    <span class="text-start carocel-heading-subtext">
+                        शेतकरी, व्यापारी आणि ग्राहक यांच्यासाठी पारदर्शक व विश्वासारर्ह बाजारपेठ उपलच्ध करून देणे हे
+                        आमचे ध्येय आहे.<br>
+                    </span>
+                    <div class="text-start"><button class="btn btn-danger aboytmore-btn">अधिक जाणून घ्या <i
+                                class="fa fa-arrow-right"></i></button></div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item" data-bs-interval="4000">
+            <div class="d-flex justify-content-end">
+                <img src="/assets/apmc_classic_theme/images/Personal-Loan-overview.jpg" class="d-block carousel-image"
+                    alt="...">
+            </div>
+            <div class="carousel-caption d-none d-md-block">
+                <div class="text-div">
+                    <b class="text-start carocel-heading-text">मंचर कृषी उत्पन्न बाजार समितीत आपले स्वागत आहे!
+                    </b>
+                    <span class="text-start carocel-heading-subtext">
+                        शेतकरी, व्यापारी आणि ग्राहक यांच्यासाठी पारदर्शक व विश्वासारर्ह बाजारपेठ उपलच्ध करून देणे हे
+                        आमचे ध्येय आहे.<br>
+                    </span>
+                    <div class="text-start"><button class="btn btn-danger aboytmore-btn">अधिक जाणून घ्या <i
+                                class="fa fa-arrow-right"></i></button></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<div class="container-fluid px-md-4">
+    <div class="row d-flex justify-content-around mt-3 g-3">
+        <div class="col-6 col-md-2 col-lg-2" data-aos="fade-up">
+            <div class="card" style="margin-bottom: 10px;">
+                <div class="card-body p-1 d-flex align-items-center">
+                    <div class="p-2">
+                        <i class='fa fa-line-chart' style='font-size:30px ;color:green;'></i>
+                    </div>
+                    <div>
+                        <span class="card-body-text">आजचे बाजार भाव</span><br />
+                        <span class="card-body-subtext">ताजे भाव पहा</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-6 col-md-2 col-lg-2" data-aos="fade-up">
+            <div class="card" style="margin-bottom: 10px;">
+                <div class="card-body p-1 d-flex align-items-center">
+                    <div class="p-2">
+                        <i class='fa fa-gavel text-primary' style='font-size:30px;'></i>
+                    </div>
+                    <div>
+                        <span class="card-body-text text-primary">लिलाव माहिती</span><br />
+                        <span class="card-body-subtext">लिलाव बेला व नियम</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class=" col-6 col-md-2 col-lg-2" data-aos="fade-up">
+            <div class="card" style="margin-bottom: 10px;">
+                <div class="card-body p-1 d-flex align-items-center">
+                    <div class="p-2">
+                        <i class='fa fa-bullhorn text-warning' style='font-size:30px'></i>
+                    </div>
+                    <div>
+                        <span class="card-body-text text-warning">सूचना / निविदा</span><br />
+                        <span class="card-body-subtext">नवीन सूचना व निविदा</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-2 col-lg-2" data-aos="fade-up">
+            <div class="card" style="margin-bottom: 10px;">
+                <div class="card-body p-1 d-flex align-items-center">
+                    <div class="p-2">
+                        <i class='fa fa-phone text-danger' style='font-size:30px'></i>
+                    </div>
+                    <div>
+                        <span class="card-body-text text-danger">तक्रार नोंदणी</span><br />
+                        <span class="card-body-subtext">ऑनलाईन तक्रार करा</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <sectinon class="details">
+        <div class="row">
+            <div class="col-md-6 p-1" data-aos="fade-up">
+                <div class="card details-card d-flex flex-column justify-content-between">
+                    <div class="card-header text-white" style="background-color: rgb(1, 96, 1);">
+                        <b>आजचे बाजार भाव</b>
+                    </div>
+                    <div class="px-1">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="text-center">
+                                    <th class="table-header-text">पिक</th>
+                                    <th class="table-header-text">किमान भाव (रु.)</th>
+                                    <th class="table-header-text">कमाल भाव (रु.)</th>
+                                    <th class="table-header-text">सरासरी भाव (रु.)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                <tr>
+                                    <td>कांदा</td>
+                                    <td>1200</td>
+                                    <td>100</td>
+                                    <td>100</td>
+                                </tr>
+                                <tr>
+                                    <td>बटाटा</td>
+                                    <td>1000</td>
+                                    <td>1800</td>
+                                    <td>1350</td>
+                                </tr>
+                                <tr>
+                                    <td>टोमॅटो</td>
+                                    <td>1200</td>
+                                    <td>2400</td>
+                                    <td>1750</td>
+                                </tr>
+                                <tr>
+                                    <td>हरभरा</td>
+                                    <td>5000</td>
+                                    <td>6200</td>
+                                    <td>5600</td>
+                                </tr>
+                                <tr>
+                                    <td>गहू</td>
+                                    <td>2150</td>
+                                    <td>2650</td>
+                                    <td>2400</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="d-flex justify-content-center mb-2">
+                        <a href="/market_prices" class="btn btn-success"><b>सर्व भाव पहा</b> <i
+                                class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 p-1" data-aos="fade-up">
+                <div class="card details-card">
+                    <div class="card-body d-flex flex-column justify-content-between"
+                        style="background-color: rgb(225, 236, 225);">
+                        <div>
+                            <i class='fa fa-volume-up icons mx-2 mb-4 fs-5' style="color: rgb(1, 96, 1);"></i>
+                            <b class="fs-5" style="color: rgb(1, 96, 1);">लिलाव माहिती</b>
+                        </div>
+                        <div>
+                            <ul id="auction_info" class="card-text h-100">
+
+                            </ul>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <a href="/auction_information" class="btn btn-success"><b>सर्व लिलाव माहिती पहा</b> <i
+                                    class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                fetch("/api/method/apmc_classic_theme.api.index.get_auction_information")
+                    .then(response => response.json())
+                    .then(data => {
+
+                        const records = data.message;
+
+                        const auction_info = document.getElementById("auction_info");
+                        records.forEach(item => {
+                            auction_info.innerHTML += `
+
+                                    <li>${item.auction_info || ''}</li>
+                                
+                            `;
+                        });
+
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+
+            </script>
+
+
+            <div class="col-md-3 p-1" data-aos="fade-up">
+                <div class="card details-card" style="background-color: rgb(245, 233, 235);">
+                    <div class="card-body">
+                        <div>
+                            <b class="fs-5 text-success">त्वरित दुवे (Quick Links)</b>
+                        </div>
+                        <div class="mt-3">
+                            <div class="my-2 d-flex">
+                                <div>
+                                    <i class='fa fa-file-text quick_link_icons' style='color:green;'></i>
+                                </div>
+                                <a href="#" class="card-text" style="text-decoration: none; color:black">रवाना
+                                    अर्ज</a>
+                            </div>
+
+                            <div class="my-2 d-flex">
+                                <div>
+                                    <i class='fa fa-line-chart quick_link_icons' style='color:green;'></i>
+                                </div>
+                                <a href="#" class="card-text" style="text-decoration: none; color:black">बाजार
+                                    भाव</a>
+                            </div>
+
+                            <div class="my-2 d-flex">
+                                <div>
+                                    <i class='fa fa-phone text-danger quick_link_icons'></i>
+                                </div>
+                                <a href="#" class="card-text" style="text-decoration: none; color:black">तक्रार
+                                    नोंदवा</a>
+                            </div>
+
+                            <div class="my-2 d-flex">
+                                <div>
+                                    <i class='fa fa-bullhorn text-warning quick_link_icons'></i>
+                                </div>
+                                <a href="#" class="card-text" style="text-decoration: none; color:black">सूचना /
+                                    निविदा</a>
+                            </div>
+
+                            <div class="my-2 d-flex">
+                                <div>
+                                    <i class='fa fa-phone text-danger quick_link_icons'></i>
+                                </div>
+                                <a href="#" class="card-text" style="text-decoration: none; color:black">संपर्क
+                                    करा</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </sectinon>
+
+
+    <section>
+        <div class="row gallery">
+            <div class="col-md-1 d-flex align-items-center">
+                <b class="mt-3" style="font-size: 25px; color: green;">गॅलरी</b>
+            </div>
+
+            <div class="col-md-10 p-2" data-aos="fade-up">
+                <div class="row" id="gallery_container"></div>
+            </div>
+
+            <div class="col-md-1 d-flex align-items-center">
+                <a href="/gallery" class="btn btn-success" style="font-size: 10px;"><b>सर्व फोटो पहा</b> <i
+                        class="fa fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <script>
+
+            fetch("/api/method/apmc_classic_theme.api.index.get_gallery_images")
+                .then(response => response.json())
+                .then(data => {
+                    let html = "";
+
+                    data.message.forEach(img => {
+                        html += `
+                <div class="col-md-2 col-6 p-2">
+                    <img class="gallery_img"
+                         src="${img.image}"
+                         alt="${img.title}">
+                </div>
+            `;
+                    });
+
+                    document.getElementById("gallery_container").innerHTML = html;
+                })
+                .catch(error => console.error(error));
+
+        </script>
+
+    </section>
+
+</div>
+
+
+{% endblock %}

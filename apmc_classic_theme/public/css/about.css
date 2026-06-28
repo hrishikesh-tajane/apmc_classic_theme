@@ -1,0 +1,11 @@
+.about_heading_text{
+   color:rgb(27, 142, 27);
+   font-family: 'Poppins', sans-serif;
+}
+.about_img{
+    border-radius: 4px;
+}
+.paragraph{
+    text-align: justify;
+    font-family: 'Poppins', sans-serif;
+}

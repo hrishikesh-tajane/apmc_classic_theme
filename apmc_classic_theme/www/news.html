@@ -1,0 +1,198 @@
+{% extends "/templates/layout.html" %}
+
+{% block content %}
+
+{{ include_style("/assets/apmc_classic_theme/css/news.css") }}
+
+<div class="container py-5">
+
+    <h2 class="text-center mb-4">बातम्या</h2>
+
+    <div class="category-filter mb-4" id="category-filter">
+    </div>
+
+    <div class="row" id="news-list">
+    </div>
+
+    <div id="noDataMessage" class="text-center py-5" style="display:none;">
+        <h5 class="text-muted">
+            या श्रेणीमध्ये कोणतीही बातमी उपलब्ध नाही.
+        </h5>
+    </div>
+
+</div>
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", async () => {
+
+        await loadCategories();
+        await loadNews();
+
+    });
+
+    async function loadCategories() {
+
+        const response = await fetch(
+            "/api/method/apmc_classic_theme.api.news.get_news_categories"
+        );
+
+        const data = await response.json();
+
+        const categories = data.message || [];
+
+        let html = `
+        <button
+            class="filter-btn active"
+            data-category="all">
+            सर्व
+        </button>
+    `;
+
+        categories.forEach(category => {
+
+            html += `
+            <button
+                class="filter-btn"
+                data-category="${category.title}">
+                ${category.title}
+            </button>
+        `;
+        });
+
+        document.getElementById("category-filter").innerHTML = html;
+
+        addFilterEvents();
+    }
+
+
+
+    function addFilterEvents() {
+
+        document.addEventListener("click", function (e) {
+
+            if (!e.target.classList.contains("filter-btn"))
+                return;
+
+            const buttons =
+                document.querySelectorAll(".filter-btn");
+
+            buttons.forEach(btn =>
+                btn.classList.remove("active")
+            );
+
+            e.target.classList.add("active");
+
+            const selectedCategory =
+                e.target.dataset.category;
+
+            const newsItems =
+                document.querySelectorAll(".news-item");
+
+            let visibleCount = 0;
+
+            newsItems.forEach(item => {
+
+                if (
+                    selectedCategory === "all" ||
+                    item.dataset.category === selectedCategory
+                ) {
+
+                    item.style.display = "block";
+                    visibleCount++;
+
+                } else {
+
+                    item.style.display = "none";
+                }
+            });
+
+            document.getElementById("noDataMessage").style.display =
+                visibleCount === 0
+                    ? "block"
+                    : "none";
+        });
+    }
+
+
+    document.addEventListener("DOMContentLoaded", async () => {
+
+        try {
+
+            const response = await fetch(
+                "/api/method/apmc_classic_theme.api.news.get_news_list"
+            );
+
+            const data = await response.json()
+
+            const newsList = data.message;
+
+            let html = "";
+
+            newsList.forEach(news => {
+
+                html += `
+                <div class="col-md-4 mb-4 news-item" data-category="${news.blog_category}">
+
+                    <div class="card h-100 shadow-sm">
+
+                        <img
+                            src="${news.meta_image || ''}"
+                            class="card-img-top"
+                            style="height:220px;"
+                        >
+
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <span class="badge bg-success">
+                                    ${news.blog_category || ''}
+                                </span>
+                                <span class="text-dark">
+                                    ${news.time_ago}
+                                </span>
+                            </div>
+                            <h5 class="mt-3">
+                                ${news.title}
+                            </h5>
+
+                            <p class="p-3 content text-dark">
+                                ${news.blog_intro
+                                ? news.blog_intro.substring(0, 120) +
+                                (news.blog_intro.length > 120 ? "..." : "")
+                                : ""
+                                }
+                            </p>
+
+                        </div>
+
+                        <div class="card-footer bg-white">
+
+                            <a
+                                href="/newsinfo?route=${news.route}"
+                                class="btn btn-success"
+                            >
+                                अधिक वाचा
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            `;
+            });
+
+            document.getElementById("news-list").innerHTML = html;
+
+        } catch (error) {
+
+            console.error(error);
+
+            document.getElementById("news-list").innerHTML =
+                "<h4>बातम्या उपलब्ध नाहीत.</h4>";
+        }
+
+    });
+</script>
+
+{% endblock %}

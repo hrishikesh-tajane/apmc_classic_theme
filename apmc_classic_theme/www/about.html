@@ -1,0 +1,32 @@
+{% extends "apmc_classic_theme/templates/layout.html" %}
+
+{% block content %}
+
+{{ include_style('/assets/apmc_classic_theme/css/about.css') }}
+
+<div class="container my-5">
+    <div class="text-center my-5">
+        <h2 class="about_heading_text">
+            <b>बाजार समिती विषयी</b>
+        </h2>
+    </div>
+    <div class="row">
+        <div class="col-md-5 mb-3">
+            <img class="about_img" src="{{about.image}}" alt="" height="260px"
+                width="100%" data-aos="fade-up">
+        </div>
+        <div class="col-md-7">
+            <div>
+                <h5 data-aos="fade-up"><b>{{ about.title }} </b></h5>
+            </div>
+
+            <div>
+                <p class="text-break text-justify paragraph" data-aos="fade-up">
+                    {{ about.description }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

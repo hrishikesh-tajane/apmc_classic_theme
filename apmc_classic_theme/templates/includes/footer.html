@@ -1,0 +1,98 @@
+{% block footer %}
+  <style>
+    .footer {
+      background-color: rgb(19, 100, 19);
+      color: rgb(188, 185, 185);
+    }
+    
+    .font-size {
+      font-size: 13px;
+    }
+    ul li {
+      padding: 3px;
+    }
+    ul li a {
+      text-decoration: none;
+      color: rgb(188, 185, 185);
+      font-size: 14px;
+    }
+    ul li a:hover {
+      color: white;
+      /* font-size: 15px; */
+    }
+  </style>
+
+  <div class="container-fluid footer p-3 py-5">
+    <div class="row">
+      <div class="col-md-4 border-end border-light">
+        <b id="company_name" style="font-size: 23px; color:white;"></b>
+        <p id="company_address" class="font-size"></p>
+        <p id="phone_no" class="font-size"></p>
+        <p id="e_mail" class="font-size"></p>
+      </div>
+
+      <div class="col-md-2 border-end border-light">
+        <span>
+          <h6 class="mx-3 text-white"><b>महत्वाचे दुवे</b></h6>
+          <ul class="font-size">
+            <li>
+              <a href="/index">मुख्यपृष्ठ</a>
+            </li>
+            <li>
+              <a href="/about">आमच्याबद्दल</a>
+            </li>
+            <li>
+              <a href="/market_prices">बाजार भाव</a>
+            </li>
+            <li>
+              <a href="/board_of_directors">संचालक मंडळ</a>
+            </li>
+            <li>
+              <a href="/officers_and_staff">अधिकारी व कर्मचारी</a>
+            </li>
+          </ul>
+        </span>
+      </div>
+      <div class="col-md-2 border-end border-light">
+        <span>
+          <h6 class="mx-3 text-white"><b>सेवा</b></h6>
+          <ul class="font-size">
+            <li>
+              <a href="/auction_information">लिलाव माहिती</a>
+            </li>
+            <li>
+              <a href="/news">बातम्या</a>
+            </li>
+            <li>
+              <a href="/gallery">गॅलरी</a>
+            </li>
+            <li>
+              <a href="/contact">संपर्क</a>
+            </li>
+          </ul>
+        </span>
+      </div>
+      <div class="col-md-4 px-4">
+        <div class="col-md-6">
+          <h6 class="text-white"><b>आम्हाला भेट द्या</b></h6>
+          <iframe id="location-url" src=""></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const response = await fetch('/api/method/apmc_classic_theme.api.footer.get_footer_details')
+    
+      const result = await response.json()
+      const data = result.message
+    
+      document.querySelector('#company_name').textContent = data.company_name || ''
+      document.querySelector('#company_address').innerHTML = data.address || ''
+      document.querySelector('#phone_no').textContent = `कार्यालय : ${data.phone_no}` || ''
+      document.querySelector('#e_mail').textContent = `ई-मेल: ${data.email}` || ''
+      document.querySelector('#location-url').src = data.location_url || ''
+    })
+  </script>
+{% endblock %}

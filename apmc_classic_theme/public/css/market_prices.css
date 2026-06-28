@@ -1,0 +1,21 @@
+.table thead th {
+    vertical-align: middle;
+}
+
+.card {
+    border-radius: 12px;
+}
+
+.table-responsive {
+    border-radius: 12px;
+}
+
+.form-control,
+.form-select {
+    height: 48px;
+}
+
+.btn-success {
+    height: 48px;
+    font-weight: 600;
+}

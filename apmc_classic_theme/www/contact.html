@@ -1,0 +1,41 @@
+{% extends "apmc_classic_theme/templates/layout.html" %}
+
+{% block content %}
+{{ include_style('/assets/apmc_classic_theme/css/contact.css') }}
+{{ include_script('/assets/apmc_classic_theme/js/contact.js') }}
+<div class="container my-5">
+    <div class="text-center my-5">
+        <h1 class="contact_heading_text">
+            <b>संपर्क</b>
+        </h1>
+    </div>
+    <div class="row">
+        <div class="col-md-4 mb-3">
+
+            <div class="w-75">
+                <h2>ऑफिस पत्ता</h2>
+                <p id="Office_Name"></p>
+                <p id="address"></p>
+            </div>
+
+            <div>
+                <p>
+                    फोन : <span id="phone_number"></span><br>
+                    ई-मेल :<span id="mail"></span>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="col-md-8 px-5">
+
+            <h2>गुगल मॅप लोकेशन</h2>
+
+            <iframe id="map_iframe" class="Location_map" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

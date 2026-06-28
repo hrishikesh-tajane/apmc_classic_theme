@@ -1,0 +1,29 @@
+.director-card {
+    background: #f8f8f8;
+    padding: 20px 20px;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.director-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.director-img {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.director-card h6 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.director-card p {
+    color: #777;
+    font-size: 14px;
+    margin: 0;
+}

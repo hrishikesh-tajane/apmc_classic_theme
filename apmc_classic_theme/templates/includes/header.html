@@ -1,0 +1,49 @@
+{% block header %}
+  <div class="container-fluid my-1 d-none d-md-block">
+    <div class="row">
+      <div class="col-md-9 d-flex align-items-center">
+        <img id="company-logo" class="mx-4" src="" height="90" width="95" alt="" />
+
+        <div class="header">
+          <b id="company-name" class="header_name" style="font-size: 2.0rem;color:rgb(1, 96, 1);"></b><br />
+          <b id="company-address" class="" style="font-size: 13px;font-family: Arial, sans-serif;"><span style="color:rgb(2, 121, 2)"></span></b>
+        </div>
+      </div>
+      <div class="hide_block col-md-3 d-flex justify-content-end flex-column">
+        <div class="d-flex mt-3 justify-content-end align-items-center">
+          {% if frappe.session.user == 'Guest' %}
+            <i class="fa fa-user-circle-o"></i>
+            <a href="/login" class="text-dark text-decoration-none">Login</a>
+          {% else %}
+            <i class="fa fa-sign-out"></i>
+            <a href="/?cmd=web_logout" class="text-dark text-decoration-none">Logout</a>
+          {% endif %}
+        </div>
+        <div class="d-flex mt-3">
+          <i class="d-flex align-items-center fa fa-phone mx-3" style="height: 25px;color:rgb(1, 96, 1);"></i><br />
+          <b id="phone" class="mt-1" style="font-size: 13px;"></b>
+        </div>
+
+        <div class="d-flex">
+          <i class="d-flex align-items-center fa fa-envelope mx-3" style="height: 25px;color:rgb(1, 96, 1);"></i>
+          <b id="email" class="mt-1" style="font-size: 13px;"></b>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const response = await fetch('/api/method/apmc_classic_theme.api.header.get_header_details')
+    
+      const result = await response.json()
+      const data = result.message
+    
+      document.getElementById('company-logo').src = data.company_logo
+      document.getElementById('company-name').textContent = data.company_name
+      document.getElementById('company-address').innerHTML = ` ${data.address}<br> <span style="color:rgb(2,121,2)"> पारदर्शक व्यवहार, शेतकऱ्यांचा विकास </span> `
+      document.getElementById('phone').textContent = `कार्यालय : ${data.phone_no}`
+      document.getElementById('email').textContent = `ई-मेल: ${data.email}`
+    })
+  </script>
+{% endblock %}
