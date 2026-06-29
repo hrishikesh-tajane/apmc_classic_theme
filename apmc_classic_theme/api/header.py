@@ -5,7 +5,7 @@ def get_header_details():
 
     company = frappe.get_all(
         "Company",
-        fields=["company_logo","company_name","address","phone_no","email"],
+        fields=["company_logo","company_name","custom_address","phone_no","email"],
         limit=1
     )
 

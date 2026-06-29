@@ -1,113 +1,108 @@
 {% block navbar %}
+  {{ include_style('assets/apmc_classic_theme/css/navbar.css') }}
 
-{{include_style("assets/apmc_classic_theme/css/navbar.css")}}
-
-<div>
+  <div>
     <nav id="Navbar" class="navbar navbar-expand-lg shadow-sm w-100 my-2">
-        <div class="container-fluid d-flex justify-content-start">
-
-            <div>
-                <button type="button" class="hamburger-btn d-lg-none" data-bs-toggle="offcanvas"
-                    data-bs-target="#mobileMenu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-            <div class="w-auto mx-2">
-                <img class="d-block d-md-none" src="/assets/apmc_classic_theme/images/manchar-logo.png" height="60" width="60"
-                    alt="">
-            </div>
-
-            <div>
-                <span class="d-block d-md-none fw-bolder navbar_company_name">
-                    मंचर कृपी उत्पन्न बाजार समिती
-                </span>
-            </div>
-
-
-            <!-- Desktop Container -->
-            <div id="desktopNav" class="d-none d-lg-block w-100"></div>
-
+      <div class="container-fluid d-flex justify-content-start">
+        <div>
+          <button type="button" class="hamburger-btn d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
+        <div class="w-auto mx-2">
+          <img id="company_logo" class="d-block d-md-none" src="" height="60" width="60" alt="" />
+        </div>
+        <script>
+          document.addEventListener('DOMContentLoaded', async () => {
+            const response = await fetch('/api/method/apmc_classic_theme.api.header.get_header_details')
+          
+            const result = await response.json()
+            const data = result.message
+          
+            document.getElementById('company_logo').src = data.company_logo
+          })
+        </script>
+        <div>
+          <span class="d-block d-md-none fw-bolder navbar_company_name">मंचर कृपी उत्पन्न बाजार समिती</span>
+        </div>
+
+        <!-- Desktop Container -->
+        <div id="desktopNav" class="d-none d-lg-block w-100"></div>
+      </div>
     </nav>
 
     <!-- Mobile Offcanvas -->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu">
-        <div class="offcanvas-header d-flex justify-content-between align-items-center">
-            <h5 class="text-light fs-5">मंचर कृपी उत्पन्न बाजार समिती</h5>
+      <div class="offcanvas-header d-flex justify-content-between align-items-center">
+        <h5 class="text-light fs-5">मंचर कृपी उत्पन्न बाजार समिती</h5>
 
-            <button class="close-btn" data-bs-dismiss="offcanvas">
-                <span></span>
-                <span></span>
-            </button>
+        <button class="close-btn" data-bs-dismiss="offcanvas">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <hr class="bg-light p-0 m-0" />
 
-        </div>
-        <hr class="bg-light p-0 m-0">
-
-        <div class="offcanvas-body" id="mobileNav"></div>
+      <div class="offcanvas-body" id="mobileNav"></div>
     </div>
 
     <!-- Single Menu -->
     <ul id="mainMenu" class="navbar-nav flex-lg-row w-100">
-
-        <li class="nav-item flex-fill">
-            <a class="nav-link {% if frappe.request.path == '/index' %}active{% endif %} " href="/index">मुख्यपृष्ठ</a>
-        </li>
-        <li class="nav-item flex-fill">
-            <a class="nav-link {% if frappe.request.path == '/about' %}active{% endif %}" href="/about">आमच्याबद्दल</a>
-        </li>
-        <li class="nav-item flex-fill">
-            <a class="nav-link {% if frappe.request.path == '/board_of_directors' %}active{% endif %}" href="/board_of_directors">संचालक मंडळ</a>
-        </li>
-        <li class="nav-item flex-fill">
-            <a class="nav-link {% if frappe.request.path == '/officers_and_staff' %}active{% endif %}" href="/officers_and_staff">अधिकारी व कर्मचारी</a>
-        </li>
-        <li class="nav-item flex-fill">
-            <a class="nav-link {% if frappe.request.path == '/market_prices' %}active{% endif %}" href="/market_prices">बाजार भाव</a>
-        </li>
-        <li class="nav-item flex-fill">
-            <a class="nav-link {% if frappe.request.path == '/auction_information' %}active{% endif %}" href="/auction_information">लिलाव माहिती</a>
-        </li>
-        <li class="nav-item flex-fill">
-            <a class="nav-link {% if frappe.request.path == '/news' %}active{% endif %}" href="/news">बातम्या</a>
-        </li>
-        <li class="nav-item flex-fill">
-            <a class="nav-link {% if frappe.request.path == '/gallery' %}active{% endif %}" href="/gallery">गॅलरी</a>
-        </li>
-        <li class="nav-item flex-fill">
-            <a class="nav-link {% if frappe.request.path == '/contact' %}active{% endif %}" href="/contact">संपर्क</a>
-        </li>
-        <li class="nav-item flex-fill d-block d-md-none ">
-             {% if frappe.session.user == 'Guest' %}
-              <i class="fa fa-user-circle-o text-white"></i>
-              <a href="/login" class="text-white text-decoration-none">Login</a>
-              {% else %}
-              <i class="fa fa-sign-out text-white"></i>
-              <a href="/?cmd=web_logout" class="text-white text-decoration-none">Logout</a>
-            {% endif %}
-        </li>
+      <li class="nav-item flex-fill">
+        <a class="nav-link {% if frappe.request.path == '/index' %}active{% endif %} " href="/index">मुख्यपृष्ठ</a>
+      </li>
+      <li class="nav-item flex-fill">
+        <a class="nav-link {% if frappe.request.path == '/about' %}active{% endif %}" href="/about">आमच्याबद्दल</a>
+      </li>
+      <li class="nav-item flex-fill">
+        <a class="nav-link {% if frappe.request.path == '/board_of_directors' %}active{% endif %}" href="/board_of_directors">संचालक मंडळ</a>
+      </li>
+      <li class="nav-item flex-fill">
+        <a class="nav-link {% if frappe.request.path == '/officers_and_staff' %}active{% endif %}" href="/officers_and_staff">अधिकारी व कर्मचारी</a>
+      </li>
+      <li class="nav-item flex-fill">
+        <a class="nav-link {% if frappe.request.path == '/market_prices' %}active{% endif %}" href="/market_prices">बाजार भाव</a>
+      </li>
+      <li class="nav-item flex-fill">
+        <a class="nav-link {% if frappe.request.path == '/auction_information' %}active{% endif %}" href="/auction_information">लिलाव माहिती</a>
+      </li>
+      <li class="nav-item flex-fill">
+        <a class="nav-link {% if frappe.request.path == '/news' %}active{% endif %}" href="/news">बातम्या</a>
+      </li>
+      <li class="nav-item flex-fill">
+        <a class="nav-link {% if frappe.request.path == '/gallery' %}active{% endif %}" href="/gallery">गॅलरी</a>
+      </li>
+      <li class="nav-item flex-fill">
+        <a class="nav-link {% if frappe.request.path == '/contact' %}active{% endif %}" href="/contact">संपर्क</a>
+      </li>
+      <li class="nav-item flex-fill d-block d-md-none">
+        {% if frappe.session.user == 'Guest' %}
+          <i class="fa fa-user-circle-o text-white"></i>
+          <a href="/login" class="text-white text-decoration-none">Login</a>
+        {% else %}
+          <i class="fa fa-sign-out text-white"></i>
+          <a href="/?cmd=web_logout" class="text-white text-decoration-none">Logout</a>
+        {% endif %}
+      </li>
     </ul>
-</div>
+  </div>
 
-
-<script>
+  <script>
     function moveMenu() {
-
-        const menu = document.getElementById("mainMenu");
-        const desktop = document.getElementById("desktopNav");
-        const mobile = document.getElementById("mobileNav");
-
-        if (window.innerWidth < 992) {
-            mobile.appendChild(menu);
-        } else {
-            desktop.appendChild(menu);
-        }
+      const menu = document.getElementById('mainMenu')
+      const desktop = document.getElementById('desktopNav')
+      const mobile = document.getElementById('mobileNav')
+    
+      if (window.innerWidth < 992) {
+        mobile.appendChild(menu)
+      } else {
+        desktop.appendChild(menu)
+      }
     }
-
-    window.addEventListener("load", moveMenu);
-    window.addEventListener("resize", moveMenu);
-</script>
-
-
+    
+    window.addEventListener('load', moveMenu)
+    window.addEventListener('resize', moveMenu)
+  </script>
 {% endblock %}

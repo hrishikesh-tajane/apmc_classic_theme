@@ -23,7 +23,12 @@ app_license = "mit"
 
 # Includes in <head>
 # ------------------
-
+fixtures = [
+    {
+        "doctype": "Custom Field",
+        "filters": {"module": ["in", ["Apmc Classic Theme"]]}
+    },
+]
 # include js, css files in header of desk.html
 app_include_css = "/assets/apmc_classic_theme/css/apmc_classic_theme.css"
 app_include_js = "/assets/apmc_classic_theme/js/apmc_classic_theme.js"

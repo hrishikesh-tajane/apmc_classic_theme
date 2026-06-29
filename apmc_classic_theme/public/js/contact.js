@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 contact.company_name;
 
             document.getElementById("address").innerText =
-                contact.address;
+                contact.custom_address;
 
             document.getElementById("phone_number").innerText =
                 contact.phone_no;
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 contact.email;
 
             document.getElementById("map_iframe").src =
-                contact.location_url;
+                contact.custom_location_url;
         })
         .catch(error => {
             console.error(error);

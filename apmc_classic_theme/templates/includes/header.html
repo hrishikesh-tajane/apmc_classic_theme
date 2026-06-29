@@ -2,11 +2,11 @@
   <div class="container-fluid my-1 d-none d-md-block">
     <div class="row">
       <div class="col-md-9 d-flex align-items-center">
-        <img id="company-logo" class="mx-4" src="" height="90" width="95" alt="" />
+        <img id="company_Navbar_logo" class="mx-4" src="" height="90" width="95" alt="" />
 
         <div class="header">
           <b id="company-name" class="header_name" style="font-size: 2.0rem;color:rgb(1, 96, 1);"></b><br />
-          <b id="company-address" class="" style="font-size: 13px;font-family: Arial, sans-serif;"><span style="color:rgb(2, 121, 2)"></span></b>
+          <b id="company_address" class="" style="font-size: 13px;font-family: Arial, sans-serif;"></b>
         </div>
       </div>
       <div class="hide_block col-md-3 d-flex justify-content-end flex-column">
@@ -39,9 +39,9 @@
       const result = await response.json()
       const data = result.message
     
-      document.getElementById('company-logo').src = data.company_logo
+      document.getElementById('company_Navbar_logo').src = data.company_logo
       document.getElementById('company-name').textContent = data.company_name
-      document.getElementById('company-address').innerHTML = ` ${data.address}<br> <span style="color:rgb(2,121,2)"> पारदर्शक व्यवहार, शेतकऱ्यांचा विकास </span> `
+      document.getElementById('company_address').innerHTML = data.custom_address
       document.getElementById('phone').textContent = `कार्यालय : ${data.phone_no}`
       document.getElementById('email').textContent = `ई-मेल: ${data.email}`
     })

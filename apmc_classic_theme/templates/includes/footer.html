@@ -26,7 +26,7 @@
     <div class="row">
       <div class="col-md-4 border-end border-light">
         <b id="company_name" style="font-size: 23px; color:white;"></b>
-        <p id="company_address" class="font-size"></p>
+        <p id="footer_company_address" class="font-size"></p>
         <p id="phone_no" class="font-size"></p>
         <p id="e_mail" class="font-size"></p>
       </div>
@@ -89,10 +89,10 @@
       const data = result.message
     
       document.querySelector('#company_name').textContent = data.company_name || ''
-      document.querySelector('#company_address').innerHTML = data.address || ''
+      document.querySelector('#footer_company_address').innerHTML = data.custom_address || ''
       document.querySelector('#phone_no').textContent = `कार्यालय : ${data.phone_no}` || ''
       document.querySelector('#e_mail').textContent = `ई-मेल: ${data.email}` || ''
-      document.querySelector('#location-url').src = data.location_url || ''
+      document.querySelector('#location-url').src = data.custom_location_url || ''
     })
   </script>
 {% endblock %}
